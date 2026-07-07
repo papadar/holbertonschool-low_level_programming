@@ -1,9 +1,11 @@
 #include <stdio.h>
-/* Program to print a line of text only */
 
 /**
- * main - the required function
- * return: always return 0
+ * main - Entry point
+ *
+ * Description: Program to print a line of text only
+ *
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
