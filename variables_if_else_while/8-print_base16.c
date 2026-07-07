@@ -9,11 +9,18 @@
  */
 int main(void)
 {
-	int i;
+	int i;	
 
-	for (i = '0'; i < 16; i++)
+	for (i = 0; i < 16; i++)
 	{
-		putchar(i);
+		if (i < 10)
+		{
+			putchar((i % 10) + '0');
+		}
+		else
+		{
+			putchar((i % 10) + 'a');
+		}
 	}
 	putchar('\n');
 
