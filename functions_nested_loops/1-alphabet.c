@@ -1,13 +1,11 @@
 #include "main.h"
 
 /**
- * main - Entry point
+ * print_alphabet - print the alphabet
  *
- *Description: print the alphabet using only two _printchars
- *
- *Return: Always returns 0
+ *Return: void
  */
-int main(void)
+void print_alphabet(void)
 {
 	char c;
 	char z;
@@ -16,11 +14,9 @@ int main(void)
 	z = 'z';
 
 	while (c <= z)
-	}
+	{
 		_putchar(c);
 		c++;
-	{
+	}
 	_putchar('\n');
-
-	return (0);
 }
