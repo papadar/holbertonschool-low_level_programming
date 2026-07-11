@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+/**
+ * sum_to_n - function add each value within a provided integer
+ *
+ * @n - Provided integer value
+ *
+ * Return: the total of the addition is returned
+ */
+
+int sum_to_n(int n)
+{
+    int i;
+    int sum = 0;
+
+    for (i = 1; i <= n; i++)
+        sum += i;
+
+    return sum;
+}
+
+/* -- DO NOT Modify the code below this line -- */
+
+int main(void)
+{
+    printf("%d\n", sum_to_n(10));
+    return 0;
+}
