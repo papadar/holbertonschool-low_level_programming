@@ -16,7 +16,7 @@ void more_numbers(void)
 		n = 0;
 		while (n < 15)
 		{
-			int d;	
+			int d;
 
 			d = (n % 10);
 			if (n > 9)
