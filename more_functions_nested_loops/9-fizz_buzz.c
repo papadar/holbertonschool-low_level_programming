@@ -32,7 +32,8 @@ int main(void)
 		{
 			printf("%d", count);
 		}
-		putchar(' ');
+		if (count < 100)
+			putchar(' ');
 		count++;
 	}
 	putchar('\n');
