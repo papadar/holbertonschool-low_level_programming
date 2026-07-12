@@ -3,7 +3,7 @@
 /**
  * print_line - print the underscore character n times
  *
- * @n - received value equals number of times to print '_'
+ * @n: - received value
  *
  * Return: void
  */
