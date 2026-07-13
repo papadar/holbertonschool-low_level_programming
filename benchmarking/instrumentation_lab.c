@@ -6,11 +6,23 @@
 
 static int dataset[DATASET_SIZE];
 
+/**
+ * next_value - collects the next value
+ *
+ * @state: The state is received, and returned
+ *
+ * Return: the next value * state
+ */
+
 static unsigned int next_value(unsigned int *state)
 {
 	*state = (*state * 1103515245u) + 12345u;
-	return *state;
+	return (*state);
 }
+
+/**
+ * build_dataset - builds the set of data
+ */
 
 static void build_dataset(void)
 {
@@ -22,6 +34,10 @@ static void build_dataset(void)
 	for (i = 0; i < DATASET_SIZE; i++)
 		dataset[i] = (int)(next_value(&state) % 100000);
 }
+
+/**
+ * process_dataset - processes the data set
+ */
 
 static void process_dataset(void)
 {
@@ -38,6 +54,12 @@ static void process_dataset(void)
 	}
 }
 
+/**
+ * reduce_checksum - reduces the checksum
+ *
+ * Return: the sum of the operation
+ */
+
 static unsigned long reduce_checksum(void)
 {
 	unsigned long sum;
@@ -47,19 +69,20 @@ static unsigned long reduce_checksum(void)
 	for (i = 0; i < DATASET_SIZE; i++)
 		sum = (sum * 131ul) + (unsigned long)dataset[i];
 
-	return sum;
+	return (sum);
 }
+
+/**
+ * main - does the work and records the times
+ *
+ * Return: always 0
+ */
 
 int main(void)
 {
 	unsigned long checksum;
 	float TOTAL, BUILD, PROCESS, REDUCE;
-	clock_t start;
-	clock_t end;
-	clock_t lap0;
-	clock_t lap1;
-
-	/* Students must add clock-based timing and print required lines. */
+	clock_t start, end, lap0, lap1;
 
 	start = clock();
 	lap0 = clock();
@@ -78,13 +101,6 @@ int main(void)
 	if (checksum == 0ul)
 		printf("impossible\n");
 
-	/* Required output (exact format, no extra lines):
-	* TOTAL seconds: <float>
-	* BUILD_DATA seconds: <float>
-	* PROCESS seconds: <float>
-	* REDUCE seconds: <float>
-	*/
-
 	end = clock();
 	TOTAL = (float)(end - start) / (float)CLOCKS_PER_SEC;
 
@@ -93,5 +109,5 @@ int main(void)
 	printf("PROCESS seconds: %f\n", PROCESS);
 	printf("REDUCE seconds: %f\n", REDUCE);
 
-	return 0;
+	return (0);
 }
