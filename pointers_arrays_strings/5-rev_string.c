@@ -9,21 +9,23 @@
  */
 void rev_string(char *s)
 {
-	int c, z;
+	char *end = s;
+	char *begin = s;
 
-	z = 0;
-	while (s[c] != '\0')
+	/* the bounds of the string */
+	while (*end != '\0')
 	{
-		c++;
+		end++;
 	}
+	end--;
 
-	char temp_str[c];i
-
-	while (z < c)
+	while (begin < end)
 	{
-		temp_str[z] = s[c - z];
-		z++;
+		char temp = *begin;
+		*begin = *end;
+		*end = temp;
+
+		begin++;
+		end--;
 	}
-	z = 0;
-	temp_str{c} = '\0';
 }
