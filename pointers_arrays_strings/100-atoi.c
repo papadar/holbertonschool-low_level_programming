@@ -23,12 +23,9 @@ int _atoi(char *s)
 		{
 			if (v > 0)
 			{
-				v = (v * b);
-				return (v);
+				return (v * b);			}
 			}
-		}
 		c++;
 	}
-	v = (v * b);
-	return (v);
+	return (v * b);
 }
