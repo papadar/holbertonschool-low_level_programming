@@ -20,7 +20,5 @@ char *_strncpy(char *dest, char *src, int n)
 			dest[c] = src[c];
 		c++;
 	}
-	if (src[c] == '\0')
-		dest[c] = '\0';
 	return (dest);
 }
