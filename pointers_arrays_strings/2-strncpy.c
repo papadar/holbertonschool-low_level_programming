@@ -18,8 +18,6 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		if (c < n)
 			dest[c] = src[c];
-		else
-			dest[c] = '\0';
 		c++;
 	}
 	dest[c] = '\0';
