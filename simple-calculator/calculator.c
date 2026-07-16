@@ -19,6 +19,15 @@ void pr_menu(int m)
 		printf("0) Quit\n");
 	}
 }
+void calc_add(void)
+{
+	int a, b;
+	
+	printf("A: ");
+	scanf("%d",&a);
+	printf("B: ");
+
+}
 
 /**
  * main - the simple calculator program
@@ -27,41 +36,44 @@ void pr_menu(int m)
  */
 int main(void)
 {
-	int input;
+	int input, quit;
 
 	input = -999;
+	quit = 0;
 
 	printf("Simple Calculator\n");
 	pr_menu(0);
-	while (input != 0)
+	while (quit != 1)
 	{
 		scanf("%d", &input);
 		if (input < 0 || input > 4)
 			printf("Invalid choice\n");
 		else
 		{
+			if (input == 0)
+			{
+				quit = 1;
+				break;
+			}
 			printf("Choice: %d\n", input);
 			switch (input)
 			{
-				case 0: 
-					printf("exit: %d\n", input);
-					break;
 				case 1: 
-					printf("one: %d\n", input);
+					calc_add();
+					quit = 1;
 					break;
 				case 2: 
-					printf("two: %d\n", input);
+					quit = 1;
 					break;
 				case 3: 
-					printf("three: %d\n", input);
+					quit = 1;
 					break;
 				case 4: 
-					printf("four: %d\n", input);
+					quit = 1;
 					break;
 			}
 		}
 	}
 	printf("Bye!\n");
-
 	return (0);
 }
