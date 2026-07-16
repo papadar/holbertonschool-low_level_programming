@@ -9,10 +9,12 @@
  */
 int _atoi(char *s)
 {
-	int c, v, b;
+	int c, b;
+	unsigned int v;
 
-	c = v = 0;
+	c = 0;
 	b = 1;
+	v = 0;
 	while (s[c] != '\0')
 	{
 		if (s[c] == '-')
