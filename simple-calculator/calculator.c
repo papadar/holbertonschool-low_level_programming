@@ -23,6 +23,11 @@ void pr_menu(int m)
 
 /**
  * calc_time - receive input and display result depending on choice
+ * addition, subtraction and multiplication are all similar in function
+ * working with two int values.
+ * Division must catch a 0 divisor and display an error. It also
+ * creates a float result and compares with the int result to decide
+ * which version to print
  *
  * @input: the user chose a valid option
  *
@@ -30,7 +35,7 @@ void pr_menu(int m)
  */
 int calc_time(int input)
 {
-	int a, b;
+	int a, b, r;
 	float result;
 
 	printf("A: ");
@@ -54,9 +59,13 @@ int calc_time(int input)
 				printf("Error: division by zero\n");
 			else
 			{
+				r = (a / b);
 				float result = (float)a / b;
 
-				printf("Result: %f\n", result);
+				if (r == result)
+					printf("Result: %d\n", r);
+				else
+					printf("Result: %.2f\n", result);
 			}
 				return (1);
 	}
