@@ -36,10 +36,11 @@ void pr_menu(int m)
 int calc_time(int input)
 {
 	int a, b, r;
-	float result;
+	float A, result;
 
 	printf("A: ");
 	scanf("%d", &a);
+	A = a;
 	printf("B: ");
 	scanf("%d", &b);
 
@@ -60,7 +61,7 @@ int calc_time(int input)
 			else
 			{
 				r = (a / b);
-				float result = (float)a / b;
+				result = (A / b);
 
 				if (r == result)
 					printf("Result: %d\n", r);
