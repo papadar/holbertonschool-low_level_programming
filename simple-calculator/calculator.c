@@ -29,7 +29,16 @@ void calc_add(void)
 	scanf("%d",&b);
 	printf("Result: %d\n", a + b);
 }
-
+void calc_subtract(void)
+{
+	int a, b;
+	
+	printf("A: ");
+	scanf("%d",&a);
+	printf("B: ");
+	scanf("%d",&b);
+	printf("Result: %d\n", a - b);
+}
 /**
  * main - the simple calculator program
  *
@@ -64,6 +73,7 @@ int main(void)
 					quit = 1;
 					break;
 				case 2: 
+					calc_subtract();
 					quit = 1;
 					break;
 				case 3: 
