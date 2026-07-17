@@ -5,13 +5,14 @@
 
 /**
  * pr_menu - print the various menus
+ * 
+ * @m: input from user - defaults to 0
  */
-
 void pr_menu(int m)
 {
 	if (m == 0)
 	{
-        	/* print the main menu*/
+		/* print the main menu*/
 		printf("1) Add\n");
 		printf("2) Subtract\n");
 		printf("3) Multiply\n");
@@ -19,36 +20,44 @@ void pr_menu(int m)
 		printf("0) Quit\n");
 	}
 }
-void calc_add(void)
-{
-	int a, b;
-	
-	printf("A: ");
-	scanf("%d",&a);
-	printf("B: ");
-	scanf("%d",&b);
-	printf("Result: %d\n", a + b);
-}
-void calc_subtract(void)
-{
-	int a, b;
-	
-	printf("A: ");
-	scanf("%d",&a);
-	printf("B: ");
-	scanf("%d",&b);
-	printf("Result: %d\n", a - b);
-}
-void calc_multiply(void)
+
+/**
+* calc_time - receive input and display result depending on choice
+*
+* @input: the user chose a valid option
+*/
+int calc_time(int input)
 {
 	int a, b;
 
 	printf("A: ");
-	scanf("%d",&a);
+	scanf("%d", &a);
 	printf("B: ");
-	scanf("%d",&b);
-	printf("Result: %d\n", a * b);
+	scanf("%d", &b);
+
+	switch (input)
+	{
+		case 1: 
+			printf("Result: %d\n", a + b);
+			return (1);
+			break;
+		case 2: 
+			printf("Result: %d\n", a - b);
+			return (1);
+			break;
+		case 3: 
+			printf("Result: %d\n", a * b);
+			return (1);
+			break;
+		case 4: 
+			printf("Result: %d\n", a / b);
+			return (1);
+			break;
+	}
+
+	return (0);
 }
+
 /**
  * main - the simple calculator program
  *
@@ -76,24 +85,7 @@ int main(void)
 				break;
 			}
 			printf("Choice: %d\n", input);
-			switch (input)
-			{
-				case 1: 
-					calc_add();
-					quit = 1;
-					break;
-				case 2: 
-					calc_subtract();
-					quit = 1;
-					break;
-				case 3: 
-					calc_multiply();
-					quit = 1;
-					break;
-				case 4: 
-					quit = 1;
-					break;
-			}
+			quit = calc_time(input);
 		}
 	}
 	printf("Bye!\n");
