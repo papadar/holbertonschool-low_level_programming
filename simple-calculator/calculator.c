@@ -55,6 +55,7 @@ int calc_time(int input)
 			else
 			{
 				float result = (float)a / b;
+
 				printf("Result: %f\n", result);
 			}
 				return (1);
