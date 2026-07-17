@@ -22,10 +22,10 @@ void pr_menu(int m)
 }
 
 /**
-* calc_time - receive input and display result depending on choice
-*
-* @input: the user chose a valid option
-*/
+ * calc_time - receive input and display result depending on choice
+ *
+ * @input: the user chose a valid option
+ */
 int calc_time(int input)
 {
 	int a, b;
