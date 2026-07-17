@@ -31,6 +31,7 @@ void pr_menu(int m)
 int calc_time(int input)
 {
 	int a, b;
+	float result;
 
 	printf("A: ");
 	scanf("%d", &a);
@@ -49,8 +50,14 @@ int calc_time(int input)
 			printf("Result: %d\n", a * b);
 			return (1);
 		case 4:
-			printf("Result: %d\n", a / b);
-			return (1);
+			if (b == 0)
+				printf("Error: division by zero\n");
+			else
+			{
+				float result = (float)a / b;
+				printf("Result: %f\n", result);
+			}
+				return (1);
 	}
 
 	return (0);
