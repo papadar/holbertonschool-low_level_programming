@@ -26,7 +26,8 @@ void calc_add(void)
 	printf("A: ");
 	scanf("%d",&a);
 	printf("B: ");
-
+	scanf("%d",&b);
+	printf("Result: %d\n", a + b);
 }
 
 /**
