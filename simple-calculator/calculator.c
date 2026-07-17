@@ -25,6 +25,8 @@ void pr_menu(int m)
  * calc_time - receive input and display result depending on choice
  *
  * @input: the user chose a valid option
+ * 
+ * Return: 1 generally, 0 if something has gone wrong
  */
 int calc_time(int input)
 {
