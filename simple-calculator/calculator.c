@@ -5,7 +5,7 @@
 
 /**
  * pr_menu - print the various menus
- * 
+ *
  * @m: input from user - defaults to 0
  */
 void pr_menu(int m)
@@ -37,22 +37,18 @@ int calc_time(int input)
 
 	switch (input)
 	{
-		case 1: 
+		case 1:
 			printf("Result: %d\n", a + b);
 			return (1);
-			break;
-		case 2: 
+		case 2:
 			printf("Result: %d\n", a - b);
 			return (1);
-			break;
-		case 3: 
+		case 3:
 			printf("Result: %d\n", a * b);
 			return (1);
-			break;
-		case 4: 
+		case 4:
 			printf("Result: %d\n", a / b);
 			return (1);
-			break;
 	}
 
 	return (0);
