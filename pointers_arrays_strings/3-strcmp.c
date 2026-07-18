@@ -1,0 +1,26 @@
+#include "main.h"
+
+/**
+ * _strcmp - Compares two strings
+ *
+ * @s1: string 1 pointer received
+ * @s2: string 2 pointer received
+ *
+ * Return: a value that indicates the 'alikeness' of the two
+ */
+int _strcmp(char *s1, char *s2)
+{
+    int c;
+
+	c = 0;
+	while (s1[c] != '\0' || s2[c] != '\0')
+	{
+        if (s1[c] < s2[c])
+            return -15;
+        if (s1[c] > s2[c])
+            return 15;
+		c++;
+	}
+
+	return (0);
+}
