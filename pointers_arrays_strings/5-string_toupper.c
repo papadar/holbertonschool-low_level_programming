@@ -20,5 +20,5 @@ char *string_toupper(char *s)
 			s[c] = l - 32;
 		c++;
 	}
-		return (*s);
+		return (s);
 }
