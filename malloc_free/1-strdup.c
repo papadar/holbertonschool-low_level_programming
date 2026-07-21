@@ -20,17 +20,19 @@ char *_strdup(char *str)
 	{
 		len++;
 	}
-	if (len > 0)
+	if (len > 0 || str[0] == '\0')
 	{
 		ar = (char *)malloc((len + 1) * sizeof(char));
 
 		if (ar)
 		{
-			while (c < len + 1)
+			while (c < len)
 			{
 				ar[c] = str[c];
 				c++;
 			}
+			if (len == 0)
+				ar[0] = '\0';
 			return (&ar[0]);
 		}
 		else
