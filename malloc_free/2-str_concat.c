@@ -2,6 +2,22 @@
 #include "main.h"
 
 /**
+ * str_count - count a string length and return that as int
+ *
+ * @s: pointer to the location of the string
+ *
+ * Return: int length of the string
+ */
+int str_count(char *s)
+{
+	unsigned int count;
+
+	count = 0;
+	while (s[count] != '\0')
+		count++;
+	return (count);
+}
+/**
  * str_concat - concatenate two strings
  *
  * @s1: pointer to the first string
@@ -9,38 +25,32 @@
  *
  * Return: pointer to the concatenated string
  */
-char *str_concat(char *s1, char * s2)
+char *str_concat(char *s1, char *s2)
 {
 	char *ar;
 	unsigned int c0, c1, c2;
 
-	c0 = c1 = c2 = 0;
-	if (!s1 || s1[0] == '\0')
-		return (NULL);
-	while (s1[c1] != '\0')
-		c1++;
-
-	if (!s2 || s2[0] == '\0')
-		return (NULL);
-	while (s2[c2] != '\0')
-		c2++;
-
+	c0 = 0;
+	c1 = str_count(s1);
+	c2 = str_count(s2);
 
 	if (c1 > 0 && c2 > 0)
-	
 	{
-		ar = (char *)malloc((len + 1) * sizeof(char));
-
+		ar = (char *)malloc((c1 + c2 + 1) * sizeof(char));
 		if (ar)
 		{
-			while (c < len)
+			while (c0 < c1)
 			{
-				ar[c] = str[c];
-				c++;
+				ar[c0] = s1[c0];
+				c0++;
 			}
-			if (len == 0)
-				ar[0] = '\0';
-			return (&ar[0]);
+			while (c0 < (c1 + c2))
+			{
+				ar[c0] = s2[c0 - c1];
+				c0++;
+			}
+			ar[c0] = '\0';
+			return (ar);
 		}
 		else
 		{
