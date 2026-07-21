@@ -11,12 +11,17 @@
  */
 int str_count(char *s)
 {
-	unsigned int count;
+	int count;
 
 	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	if (s == NULL)
+		return (count);
+	else
+	{
+		while (s[count] != '\0')
+			count++;
+		return (count);
+	}
 }
 /**
  * str_concat - concatenate two strings
@@ -32,32 +37,22 @@ char *str_concat(char *s1, char *s2)
 	unsigned int c0, c1, c2;
 
 	c0 = 0;
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
 	c1 = str_count(s1);
 	c2 = str_count(s2);
 	ar = (char *)malloc((c1 + c2 + 1) * sizeof(char));
 	if (ar)
 	{
-		if (c1 > 0)
+		while (c0 < c1)
 		{
-			while (c0 < c1)
-			{
-				ar[c0] = s1[c0];
-				c0++;
-			}
+			ar[c0] = s1[c0];
+			c0++;
 		}
-		if (c2 > 0)
+		while (c0 < (c1 + c2))
 		{
-			while (c0 < (c1 + c2))
-			{
-				ar[c0] = s2[c0 - c1];
-				c0++;
-			}
+			ar[c0] = s2[c0 - c1];
+			c0++;
 		}
-		ar[c0] = '\0';
+		ar[c1 + c2 + 1] = '\0';
 		return (ar);
 	}
 	else
