@@ -12,18 +12,28 @@
  */
 char *create_array(unsigned int size, char c)
 {
+	char *ar;
+	unsigned int i;
+
 	if (size > 0)
 	{
-		char *ar = (char *)malloc(size * sizeof(char));
-		unsigned int i;
-
 		i = 0;
-		while (i < size)
+		ar = (char *)malloc(size * sizeof(char));
+
+		if (ar)
 		{
-			ar[i] = c;
-			i++;
+			while (i < size)
+			{
+				ar[i] = c;
+				i++;
+			}
+			return (&ar[0]);
 		}
-		return (&ar[0]);
+		else
+		{
+			free(ar);
+			return (NULL);
+		}
 	}
 	else
 		return (NULL);
