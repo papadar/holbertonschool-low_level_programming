@@ -14,14 +14,14 @@ int str_count(char *s)
 	int count;
 
 	count = 0;
-	if (s == NULL)
-		return (count);
-	else
+	if (s != NULL)
 	{
 		while (s[count] != '\0')
 			count++;
 		return (count);
 	}
+	else
+		return (count);
 }
 /**
  * str_concat - concatenate two strings
