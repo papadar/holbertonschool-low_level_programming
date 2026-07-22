@@ -15,10 +15,10 @@ void zero_grid(int **grid, int width, int height)
 	int w, h;
 
 	w = 0;
-	while (w < width)
+	while (w < height)
 	{
 		h = 0;
-		while (h < height)
+		while (h < width)
 		{
 			grid[w][h] = 0;
 			h++;
@@ -38,35 +38,33 @@ void zero_grid(int **grid, int width, int height)
 int **alloc_grid(int width, int height)
 {
 	int **grid;
-	int w;
+	int d, h;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	grid = (int **)malloc((width) * sizeof(*grid));
+	grid = (int **)malloc((height) * sizeof(*grid));
 	if (grid)
 	{
-		w = 0;
-		while (w < width)
+		h = 0;
+		while (h < height)
 		{
-			grid[w] = (int *)malloc(height * sizeof(int));
-			if (!grid[w])
+			grid[h] = (int *)malloc(width * sizeof(int));
+			if (!grid[h])
 			{
-				while (w >= 0)
+				d = 0;
+				while (d < h)
 				{
-					free(grid[w]);
-					w--;
+					free(grid[d]);
+					d++;
 				}
 				free(grid);
 				return (NULL);
 			}
-			w++;
+			h++;
 		}
 	}
 	else
-	{
-		free(grid);
 		return (NULL);
-	}
 	zero_grid(grid, width, height);
 	return (grid);
 }
