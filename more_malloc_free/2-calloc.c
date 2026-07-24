@@ -14,7 +14,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	void *grid;
 	unsigned int count;
 
-	if (sizeof(nmemb) == 0 || size == 0)
+	if (nmemb == 0 || sizeof(nmemb) == 0 || size == 0)
 		return (NULL);
 	grid = malloc(nmemb * size);
 	if (!grid)
