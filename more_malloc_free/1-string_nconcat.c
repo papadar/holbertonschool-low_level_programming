@@ -37,17 +37,16 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *newString;
 	unsigned int c0, c1, c2;
 
-	c0 = 0;
 	c1 = str_count(s1);
 	c2 = str_count(s2);
-
 	if (n > c2)
 	{
 		n = c2;
 	}
-	newString = (char *)malloc(c1 + n + 1 * sizeof(char));
+	newString = malloc((c1 + n + 1) * sizeof(*newString));
 	if (newString)
 	{
+		c0 = 0;
 		while (c0 < c1)
 		{
 			newString[c0] = s1[c0];
@@ -58,7 +57,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			newString[c0] = s2[c0 - c1];
 			c0++;
 		}
-		newString[c1 + n + 1] = '\0';
+		newString[c0] = '\0';
 		return (newString);
 	}
 	else
