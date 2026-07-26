@@ -41,39 +41,39 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	nLen = strLen(name);
 	oLen = strLen(owner);
-	if (nLen > 0 && oLen > 0 && age != 0)
+	theDog = malloc(sizeof(dog_t));
+	if (theDog)
 	{
-		theDog = malloc(sizeof(dog_t));
-		if (theDog)
+		theDog->name = malloc(nLen + 1);
+		theDog->owner = malloc(oLen + 1);
+		if (theDog->name && theDog->owner)
 		{
-			theDog->name = malloc(nLen + 1);
-			theDog->owner = malloc(oLen + 1);
-			if (theDog->name && theDog->owner)
+			count = 0;
+			while (count < nLen + 1)
 			{
-				count = 0;
-				while (count < nLen + 1)
-				{
-					theDog->name[count] = name[count];
-					count++;
-				}
-				count = 0;
-				while (count < oLen + 1)
-				{
-					theDog->owner[count] = owner[count];
-					count++;
-				}
-				theDog->age = age;
-				return (theDog);
+				theDog->name[count] = name[count];
+				count++;
 			}
-			else
+			count = 0;
+			while (count < oLen + 1)
 			{
-				free(theDog);
-				return (NULL);
+				theDog->owner[count] = owner[count];
+				count++;
 			}
+			theDog->age = age;
+			return (theDog);
 		}
 		else
+		{
+			free(theDog->name);
+			free(theDog->owner);
+			free(theDog);
 			return (NULL);
+		}
 	}
 	else
+	{
+		free(theDog);
 		return (NULL);
+	}
 }
