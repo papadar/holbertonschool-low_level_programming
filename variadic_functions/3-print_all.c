@@ -12,29 +12,46 @@
 void print_all(const char * const format, ...)
 {
         va_list List;
-        int i;
-        char *Str;
-	float Flo;
+        int u, v;
+	OPP opts[] = {
+		{"c", printChar},
+		{"i", printInt},
+		{"f", printFlot},
+		{"s", printStr},
+		{NULL, NULL}
+	};
 	
-        i = 0;
         va_start(List, format);
-        while (format[i])
+        
+	u = 0;
+	while (format[u])
         {
-                switch formate[i]
-			case 'c':
-				print_char();
-				break;
-			case 'i':
-				print_int();
-				break;
-			case 'f':
-				print_float();
-				break;
-			case 's':
-				print_str();
-				break;	
-		i++;
-        }
+        	v = 0;
+		while (opts[v].operation)
+		{
+			if (format[u] == opts[v].operation[0])	
+				opts[v].func(List);				
+			v++;
+		}
+		u++;
+	}
         printf("\n");
         va_end(List);
+}
+
+void printChar(va_list charList)
+{
+	printf("%c", va_arg(charList, char));
+}
+void printInt(va_list intList)
+{
+	printf("%i", va_arg(intList, int));
+}
+void printFlot(va_list flotList)
+{
+	printf("%f", va_arg(flotList, float));
+}
+void printStr(va_list strList)
+{
+	printf("%s", va_arg(strList, *char));
 }
