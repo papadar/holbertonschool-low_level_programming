@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "3-calc.h"
+#include <stdarg.h>
 
 /**
  * main - the calculator main
