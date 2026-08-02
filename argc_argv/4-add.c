@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  * main - prints the sum result of n int args
@@ -11,8 +12,9 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
-	int val, sum;
+	char *ptr;
+	int i, sum;
+	long val;
 
 	i = 1;
 	sum = 0;
@@ -20,8 +22,14 @@ int main(int argc, char *argv[])
 	{
 		while (i < argc)
 		{
-			val = atoi(argv[i]);
-			sum += val;
+			val = strtol(argv[i], &ptr, 10);
+			if (ptr == argv[i] || *ptr != '\0' || val > INT_MAX || val < INT_MIN)
+			{
+				printf("Error\n");
+				return (1);
+			}
+			else
+				sum += (int)val;
 			i++;
 		}
 		printf("%d\n", sum);
