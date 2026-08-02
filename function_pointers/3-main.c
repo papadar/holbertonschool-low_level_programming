@@ -11,36 +11,26 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b, count;
-
-	a = b = count = 0;
+	int a, b;
 
 	/*get the input*/
 	/*analyse the input*/
 	/*handle the input*/
 
+	printf("argc = %i\n", argc);
+
 	if (argc == 4)
 	{
-		switch (argv[2])
-			case '+':
-				printf("add");
-				break;
-			case '-':
-				printf("sub");
-				break;
-			case '*':
-				printf("mult");
-				break;
-			case '/':
-				printf("div");
-				break;
-			case '%':
-				printf("mod");
-				break;
+        	a = atoi(argv[1]);
+        	b = atoi(argv[3]);
+		printf("here\n");
 	}
 	else
 	{
+		printf("argc = %d\n", argc);
 		printf("Error\n");
-		return (1);
+
+
+		return (98);
 	}
 }
