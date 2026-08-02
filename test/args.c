@@ -8,6 +8,8 @@ int main(int argc, char* argv[])
 	i = 1;
 	sum = 0;
 	printf("argc = %d\n", argc);
+	printf("argv[0] = %s\n", argv[0]);
+
 	if (argc > 1)
 	{
 		while (i < argc)
