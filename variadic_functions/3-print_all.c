@@ -10,12 +10,13 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int prev, i, j;
+	int i, j;
+	char sep[3] = {'\0', '\0', '\0'};
 	char match[5] = {'c', 'i', 'f', 's', '\0'};
 	void (*functions[5])() = {printChar, printInt, printFlot, printStr, NULL};
 
 	va_start(args, format);
-	prev = i = 0;
+	i = 0;
 	while (format[i])
 	{
 		j = 0;
@@ -23,10 +24,10 @@ void print_all(const char * const format, ...)
 		{
 			if (format[i] == match[j])
 			{
-				if (prev != 0)
-					printf(", ");
+				printf("%s", sep);
 				functions[j](args);
-				prev = 1;
+				sep[0] = ',';
+				sep[1] = ' ';
 			}
 			j++;
 		}
