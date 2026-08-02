@@ -58,7 +58,7 @@ void printInt(va_list intList)
  */
 void printFlot(va_list flotList)
 {
-	printf("%f", (float)va_arg(flotList, int));
+	printf("%f", va_arg(flotList, double));
 }
 /**
  * printStr - prints the Strings
