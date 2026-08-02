@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-    print_all("fcsi", 3.14435, 'H', "#Cisfun", 0);
+    print_all('\0');
     return (0);
 }
