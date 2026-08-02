@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "3-calc.h"
-#include <stdarg.h>
 
 /**
  * main - the calculator main
@@ -12,26 +9,35 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int (*funky)(int, int);
+	int a, b, res;
 
-	/*get the input*/
-	/*analyse the input*/
-	/*handle the input*/
-
-	printf("argc = %i\n", argc);
-
-	if (argc == 4)
+	if (argc != 4)
 	{
-        	a = atoi(argv[1]);
-        	b = atoi(argv[3]);
-		printf("here\n");
+		printf("Error\n");
+		exit(98);
 	}
 	else
 	{
-		printf("argc = %d\n", argc);
-		printf("Error\n");
+		funky = get_op_func(argv[2]);
+		a = atoi(argv[1]);
+		b = atoi(argv[3]);
 
-
-		return (98);
+		if (funky == NULL)
+		{
+			printf("Error\n");
+			exit(99);
+		}
+		if (b == 0)
+		{
+			if (strcmp(argv[2], "/") == 0 || strcmp(argv[2], "%") == 0)
+			{
+				printf("Error\n");
+				exit(100);
+			}
+		}
+		res = funky(a, b);
+		printf("%d\n", res);
+		return (0);
 	}
 }
