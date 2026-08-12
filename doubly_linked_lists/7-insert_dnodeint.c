@@ -18,8 +18,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (!temp)
 		return (NULL);
-	if (n > INT_MAX || n < INT_MIN)
-		return (NULL);
 
 	temp->n = n;
 	temp->prev = NULL;
@@ -27,11 +25,10 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	while (pos < idx)
 	{
-		if (head)
-		{
-			prev = head;
-			head = head->next;
-		}
+		if (!head)
+			return (NULL);
+		prev = head;
+		head = head->next;
 		pos++;
 	}
 	if (head)
