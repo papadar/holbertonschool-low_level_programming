@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <limits.h>
 
 /**
  * insert_dnodeint_at_index - places a new node at n depth
@@ -16,6 +17,8 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *temp = malloc(sizeof(dlistint_t));
 
 	if (!temp)
+		return (NULL);
+	if (n > INT_MAX || n < INT_MIN)
 		return (NULL);
 
 	temp->n = n;
