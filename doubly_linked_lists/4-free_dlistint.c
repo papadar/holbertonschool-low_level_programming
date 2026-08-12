@@ -2,7 +2,7 @@
 
 /**
  * free_dlistint - cycles through the list and freeze the memory
- * @head - pointer to the first item
+ * @head: pointer to the first item
  */
 
 void free_dlistint(dlistint_t *head)
