@@ -10,12 +10,9 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	const char *check;
 	unsigned long int index;
 	hash_node_t *head;
 	hash_node_t *temp;
-
-	/*printf("starting\n");*/
 
 	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
 		return (0);
@@ -33,30 +30,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[index] = temp;
 		return (1);
 	}
-	
-/*	printf("found an item, searching\n"); */
-
-	check = head->key;
-	while (check != key && head->next != NULL)
-	{
-		head = head->next;
-		check = head->key;
-	}
-	if (check == key)
+	if (head->key == key)
 	{
 		free(head->value);
 		head->value = strdup(value);
 		return (1);
 	}
-	else if (head->next == NULL)
+	else
 	{
 		temp = malloc(sizeof(hash_node_t));
 		if (temp == NULL)
 			return (0);
 		temp->value = strdup(value);
 		temp->key = strdup(key);
-		temp->next = NULL;
-		head->next = temp;
+		temp->next = head;
 		return (1);
 	}
 	return (0);
