@@ -1,0 +1,16 @@
+#include "main.h"
+
+/**
+ * _strlen_recursion - recursively count the length of a string
+ * @s: pointer to char 0
+ * Return: number of chars
+ */
+
+int _strlen_recursion(char *s)
+{
+	if (*s != '\0')
+	{
+		return (1 + _strlen_recursion(s + 1));
+	}
+	return (0);
+}
