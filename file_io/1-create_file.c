@@ -5,13 +5,13 @@
  * @filename: the provided filename
  * @text_content: pointer to a string
  * Return: 1 if made the file, -1 on failure
- */ 
+ */
 
 int create_file(const char *filename, char *text_content)
-{	
+{
 	int count, file, out;
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
 	count = file = out = 0;
 	while (text_content[count] != '\0')
